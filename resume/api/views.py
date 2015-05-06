@@ -17,8 +17,14 @@ class ResumeViewSet(viewsets.ModelViewSet):
     serializer_class = ResumeSerializer
 
 class ExperienceViewSet(viewsets.ModelViewSet):
-    queryset = Experience.objects.all()
     serializer_class = ExperienceSerializer
+
+    def get_queryset(self):
+        queryset = Experience.objects.all()
+        year = self.request.QUERY_PARAMS.get('year', None)
+        if year is not None:
+            queryset = queryset.filter(year=year)
+        return queryset
 
 class QualificationViewSet(viewsets.ModelViewSet):
     queryset = Qualification.objects.all()

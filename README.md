@@ -1,4 +1,6 @@
 django_poll
 =====
 
-The django tutorial
+issues
+------
+deploy to heroku || elasticbeanstalk (postgres for production, sqlite in development)
