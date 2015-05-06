@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User, Group
-from resume.models import Resume, Experience
+from resume.models import Resume, Experience, Qualification
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
@@ -19,3 +19,7 @@ class ResumeSerializer(serializers.HyperlinkedModelSerializer):
 class ExperienceSerializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
 		model = Experience
+
+class QualificationSerializer(serializers.HyperlinkedModelSerializer):
+	class Meta:
+		model = Qualification

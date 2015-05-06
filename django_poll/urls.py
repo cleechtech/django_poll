@@ -5,7 +5,10 @@ from django.contrib import admin
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
-router.register(r'users', views.GroupViewSet)
+router.register(r'groups', views.GroupViewSet)
+router.register(r'resume', views.ResumeViewSet)
+router.register(r'experience', views.ExperienceViewSet)
+router.register(r'qualification', views.QualificationViewSet)
 
 urlpatterns = patterns('',
     url(r'^polls/', include('polls.urls', namespace='polls')),
