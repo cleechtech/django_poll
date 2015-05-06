@@ -5,6 +5,8 @@ dist
 bin
 lib
 db.sqlite3
+staticfiles
+venev
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
