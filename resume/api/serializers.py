@@ -12,14 +12,16 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 		model = Group
 		fields = ('url', 'name')
 
-class ResumeSerializer(serializers.HyperlinkedModelSerializer):
-	class Meta:
-		model = Resume
-
-class ExperienceSerializer(serializers.HyperlinkedModelSerializer):
+class ExperienceSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Experience
 
-class QualificationSerializer(serializers.HyperlinkedModelSerializer):
+class QualificationSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Qualification
+
+class ResumeSerializer(serializers.ModelSerializer):
+	qualification = QualificationSerializer(many=True)
+	previous_experience = ExperienceSerializer()
+	class Meta:
+		model = Resume
